@@ -18,9 +18,14 @@
 <script>
 	export default {
 		name:"NavBar",
+		props: {
+			navList: {
+				type: Array,
+				default: () => []
+			}
+		},
 		data() {
 			return {
-				navList: [],
 				currentChannelId: ''
 			};
 		},
@@ -30,23 +35,11 @@
 				this.$emit('change', item)
 			}
 		},
-		mounted() {
-			console.log('mounted')
-			uni.request({
-				url: 'https://ku.qingnian8.com/dataApi/news/navlist.php',
-				success: (res) => {
-					console.log(res)
-					if (res.statusCode === 200) {
-						this.navList = res.data
-						this.currentChannelId = res.data[0].id
-						console.log(this.navList)
-					} else {
-						uni.showToast({
-							title: '出错了！'
-						})
-					}
-				}
-			})
+		mounted() {},
+		watch: {
+			navList: function(val) {
+				this.currentChannelId = val[0]?.id
+			}
 		}
 	}
 </script>
