@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<scroll-view :scroll-x="true" >
+		<scroll-view class="scroll-box" :scroll-x="true" :scrollbar-visibility="'hidden'">
 			<view class="nav-bar">
 				<text 
 					class="nav-item"
@@ -53,12 +53,15 @@
 
 <style lang="scss" scoped>
 .container {
+	.scroll-box {
+		::-webkit-scrollbar {
+			display: none;
+		}
+	}
 	.nav-bar {
-		display: flex;
-		flex-wrap: nowrap;
-		align-items: center;
 		height: 50px;
-		width: 500px;
+		line-height: 50px;
+		white-space: nowrap;
 		.nav-item {
 			margin: 0 20px;
 			font-size: 18px;
