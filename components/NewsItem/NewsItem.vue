@@ -7,7 +7,7 @@
 			<view class="news-title">{{ news.title }}</view>
 			<view class="news-info">
 				<text class="author">{{ news.author }}</text>
-				<text class="time">{{ news.posttime }}</text>
+				<text class="time">热度:{{ news.hits }}</text>
 			</view>
 		</view>
 	</view>
@@ -48,6 +48,7 @@
 		}
 	}
 	.news-content {
+		flex: 1;
 		height: 100%;
 		display: flex;
 		flex-direction: column;

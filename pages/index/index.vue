@@ -14,6 +14,7 @@
 				currentCategory: '', // 当前分类
 				navList: [], // 分类列表
 				newsList: [], // 新闻列表
+				currentPage: 1 // 当前页码
 			}
 		},
 		async onLoad() {
@@ -24,6 +25,10 @@
 			await this.getNavList()
 			await this.getNewsList()
 			uni.hideLoading()
+		},
+		onReachBottom() {
+			this.currentPage++
+			this.getNewsList()
 		},
 		methods: {
 			async handleNavChange(item) {
@@ -60,7 +65,7 @@
 			getNewsList() {
 				return new Promise((resolve, reject) => {
 					uni.request({
-						url: `https://ku.qingnian8.com/dataApi/news/newslist.php?cid=${this.currentCategory}&num=10&page=1`,
+						url: `https://ku.qingnian8.com/dataApi/news/newslist.php?cid=${this.currentCategory}&num=10&page=${this.currentPage}`,
 						success: (res) => {
 							console.log('新闻', res)
 							if (res.statusCode === 200) {
