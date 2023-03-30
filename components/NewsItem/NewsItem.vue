@@ -7,7 +7,8 @@
 			<view class="news-title">{{ news.title }}</view>
 			<view class="news-info">
 				<text class="author">{{ news.author }}</text>
-				<text class="time">热度:{{ news.hits }}</text>
+				<text v-if="news.hits" class="time">热度:{{ news.hits }}</text>
+				<text v-if="news.visitTime" class="visit-time">{{ news.visitTime }}</text>
 			</view>
 		</view>
 	</view>
@@ -61,6 +62,9 @@
 	.news-info {
 		display: flex;
 		justify-content: space-between;
+	}
+	.visit-time {
+		font-size: 12px;
 	}
 }
 </style>

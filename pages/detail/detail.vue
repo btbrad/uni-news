@@ -34,6 +34,7 @@
 			})
 			await this.getDetail()
 			uni.hideLoading()
+			this.saveToStorage()
 		},
 		methods: {
 			getDetail() {
@@ -44,6 +45,9 @@
 							console.log('新闻详情', res)
 							res.data.content = res.data.content.replace(/<img/ig, '<img style="width: 100%;"')
 							this.newDetail = res.data
+							uni.setNavigationBarTitle({
+								title: res.data.title
+							})
 							resolve()
 						},
 						fail: (err) => {
@@ -54,6 +58,20 @@
 			},
 			formatTime(time) {
 				return dayjs(time).format('YYYY-MM-DD HH:mm:ss')
+			},
+			saveToStorage() {
+				const { id, author, title, picurl, classid } = this.newDetail
+				const record = { id, author, title, picurl, classid, visitTime: dayjs().format('YYYY-MM-DD HH:mm:ss') }
+				const records = uni.getStorageSync('news-history') || []
+				if (records?.length >= 10) {
+					records.pop()
+				}
+				const idx = records.findIndex(item => item.id === record.id)
+				if (idx >= 0 ) {
+					records.splice(idx, 1)
+				}
+				records.unshift(record)
+				uni.setStorageSync('news-history', records)
 			}
 		}
 	}
