@@ -2,7 +2,7 @@
 	<view class="container">
 		<NavBar :nav-list="navList" @change="handleNavChange" />
 		<view class="news-list">
-			<NewsItem v-for="(news, index) in newsList" :key="news.id" :news="news" />
+			<NewsItem v-for="(news, index) in newsList" :key="news.id" :news="news" @click.native="showDetail(news.id)" />
 		</view>
 		<view v-if="noData" class="no-data">
 			<image src="../../static/empty.png" mode="widthFix"></image>
@@ -98,6 +98,11 @@
 							}
 						}
 					})
+				})
+			},
+			showDetail(id) {
+				uni.navigateTo({
+					url: `/pages/detail/detail?id=${id}&cid=${this.currentCategory}`
 				})
 			}
 		}
