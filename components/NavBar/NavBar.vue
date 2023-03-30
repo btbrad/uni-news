@@ -46,12 +46,20 @@
 
 <style lang="scss" scoped>
 .container {
+	position: fixed;
+	top: var(--window-top);
+	left: 0;
+	background: #fff;
+	z-index: 10;
+	width: 100%;
+	overflow-x: auto;
 	.scroll-box {
 		::-webkit-scrollbar {
 			display: none;
 		}
 	}
 	.nav-bar {
+		// width: 1000rpx;
 		height: 50px;
 		line-height: 50px;
 		white-space: nowrap;
