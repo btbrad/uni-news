@@ -31,6 +31,7 @@
 			}
 		},
 		async onLoad() {
+			console.log('index.vue onload')
 			uni.showLoading({
 				title: "加载中...",
 				mask: true

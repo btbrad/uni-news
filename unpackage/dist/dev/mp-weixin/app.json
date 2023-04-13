@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/detail/detail"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "信息湾",
+    "navigationBarTitleText": "News Buzz",
     "navigationBarBackgroundColor": "#f40",
     "backgroundColor": "#F8F8F8"
   },

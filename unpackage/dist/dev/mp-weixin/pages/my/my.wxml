@@ -1,1 +1,1 @@
-<view></view>
+<view class="container"><view class="title"><image src="../../static/history.png" mode="widthFix"></image><text>浏览历史记录</text></view><view class="history-list"><block wx:for="{{history}}" wx:for-item="news" wx:for-index="__i0__" wx:key="id"><news-item vue-id="{{'704e9d00-1-'+__i0__}}" news="{{news}}" data-event-opts="{{[['tap',[['showDetail',['$0','$1'],[[['history','id',news.id,'id']],[['history','id',news.id,'classid']]]]]]]}}" bindtap="__e" bind:__l="__l"></news-item></block></view></view>

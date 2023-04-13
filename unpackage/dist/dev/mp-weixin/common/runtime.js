@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/NavBar/NavBar":1};
+/******/ 		var cssChunks = {"components/NavBar/NavBar":1,"components/NewsItem/NewsItem":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/NavBar/NavBar":"components/NavBar/NavBar"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/NavBar/NavBar":"components/NavBar/NavBar","components/NewsItem/NewsItem":"components/NewsItem/NewsItem"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

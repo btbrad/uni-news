@@ -24,12 +24,22 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.container.data-v-6e9cc378 {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  background: #fff;
+  z-index: 10;
+  width: 100%;
+  overflow-x: auto;
+}
+.container .scroll-box.data-v-6e9cc378 ::-webkit-scrollbar {
+  display: none;
+}
 .container .nav-bar.data-v-6e9cc378 {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
   height: 50px;
-  width: 500px;
+  line-height: 50px;
+  white-space: nowrap;
 }
 .container .nav-bar .nav-item.data-v-6e9cc378 {
   margin: 0 20px;
